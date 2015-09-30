@@ -1,0 +1,19 @@
+	List p=16f877 			;descripci€n del pic
+		ORG 0x00				;empieza en dir 0
+		
+Inicio	
+		bsf 	0x003, 0x05
+		bcf 	0x003, 0x06		;accdemos al banco 1
+		movlw  0x00
+		movwf  0x06   
+		bcf 	0x03,0x05
+loop
+		movlw 	0x55
+		movwf 	0x06 
+		movlw	0xFF
+		movwf	0x08
+		bcf 	0x03,0x05 
+		movf	0x08,0 
+		movwf	0x06
+		goto	loop;
+		end;
